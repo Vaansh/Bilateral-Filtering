@@ -54,8 +54,8 @@
 
 ## Usage
 
-TODO
+Run `program` to execute bilateral filters iteratively on every file with different parameters.
 
 Examples:
 
-TODO
+See `output` directory.
