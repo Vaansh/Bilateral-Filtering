@@ -17,15 +17,14 @@ function program()
 
     files = dir("input/*.png");
     for file = files'
-%         status = rmdir("output", file.name);
         [p,f,x] =fileparts(file.name);
         folder = fullfile(p,f);
         status = mkdir("output", folder);
         for window_size = WINDOW_SIZE
             for sigma_s = SIGMA_S
                 for sigma_p = SIGMA_P
-                    I = imread(fullfile("input", file.name));
-                    O = bilateralfilter(I, window_size, sigma_s, sigma_p);
+                    I    = imread(fullfile("input", file.name));
+                    O    = bilateralfilter(I, window_size, sigma_s, sigma_p);
                     name = strcat("w=", int2str(window_size), "_s=", int2str(sigma_s), ...
                                  "_p=", int2str(sigma_p), ".png");
                     file_name = fullfile("output", folder, name);

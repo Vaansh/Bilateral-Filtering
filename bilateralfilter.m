@@ -6,8 +6,8 @@ function [O] = bilateralfilter(I, window_size, sigma_s, sigma_p)
 %   Parameters
 %       I               The observed image matrix 
 %       window_size     The size of filter window
-%       sigma_s         The sandard deviation of the spatial kernel
-%       sigma_p         The sandard deviation of the photometric kernel
+%       sigma_s         The standard deviation of the spatial kernel
+%       sigma_p         The standard deviation of the photometric kernel
 % 
 %   Formula
 %       O = 1/W * Σ (g_s ||p - q||) * (f_r |I_p - I_q|) * I_q                       ... (1)
