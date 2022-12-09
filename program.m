@@ -1,6 +1,6 @@
 function program()
-% PROGRAM   Iterates over .png files in "input" directory, applies the bilateralfilter with various parameters
-%           and saves result to the corresponding "output" directory.
+% PROGRAM   Iterates over .png files in "input" directory, applies the bilateralfilter with
+%           various parameters and saves result to the corresponding "output" directory.
     SIGMAD  = [1,   3,    5];
     SIGMAR  = [0.1, 0.25, 10];
     WINDOWS = [23];

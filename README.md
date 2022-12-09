@@ -14,7 +14,7 @@
   <p align="center">
     A project on the topic of Bilateral Filtering
     <br />
-    <a href="https://docs.google.com/document/d/1SoGcFHgOVL3htLHraDunL0CXzr4W436Z/edit?usp=sharing&ouid=105170780816983344292&rtpof=true&sd=true"><strong>Explore the doc »</strong></a>
+    <a href="https://docs.google.com/document/d/1SoGcFHgOVL3htLHraDunL0CXzr4W436Z/edit?usp=sharing&ouid=105170780816983344292&rtpof=true&sd=true"><strong>Read the doc »</strong></a>
     <br />
     <br />
   </p>
