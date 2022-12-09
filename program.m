@@ -1,34 +1,27 @@
 function program()
-% PROGRAM   Goes through all .png files in "input" directory, calls the bilateralfilter
-%   method and saves result to the corresponding "output" directory.
-% 
-%   See also BILATERALFILTER.
-% 
-%   Written by
-%       Vaansh Vikas Lakhwara (vaanshlakhwara AT gmail.com)
-%       Shivangi Ahuja (ahujashivangi1301 AT gmail.com)
-% 
-%   Implementation
-
-    % CONSTANTS
-    SIGMA_S     = [1,  3,  10];
-    SIGMA_P     = [10, 30, 100, 300];
-    WINDOW_SIZE = [11, 25];
-
+% PROGRAM   Iterates over .png files in "input" directory, applies the bilateralfilter with various parameters
+%           and saves result to the corresponding "output" directory.
+    SIGMAD  = [1,   3,    5];
+    SIGMAR  = [0.1, 0.25, 10];
+    WINDOWS = [23];
+    
     files = dir("input/*.png");
     for file = files'
-        [p,f,x] =fileparts(file.name);
-        folder = fullfile(p,f);
+        [p, f, x] = fileparts(file.name);
+        folder = fullfile(p, f);
         status = mkdir("output", folder);
-        for window_size = WINDOW_SIZE
-            for sigma_s = SIGMA_S
-                for sigma_p = SIGMA_P
-                    I    = imread(fullfile("input", file.name));
-                    O    = bilateralfilter(I, window_size, sigma_s, sigma_p);
-                    name = strcat("w=", int2str(window_size), "_s=", int2str(sigma_s), ...
-                                 "_p=", int2str(sigma_p), ".png");
-                    file_name = fullfile("output", folder, name);
-                    imwrite(O, file_name);
+        for window = WINDOWS
+            for sigmad = SIGMAD
+                for sigmar = SIGMAR
+                    I = imread(fullfile("input", file.name));
+                    O = bilateralfilter(I, window, sigmad, sigmar);
+                    
+                    filename = strcat("window=", int2str(window), ...
+                                      "_sigmad=", int2str(sigmad), ...
+                                      "_sigmar=", string(sigmar), ".png");
+                    
+                    filepath = fullfile("output", folder, filename);
+                    imwrite(O, filepath);
                 end
             end
         end
